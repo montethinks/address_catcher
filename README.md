@@ -1,6 +1,6 @@
 # Using Google Sheets with Ruby and Sinatra
 
-This is an application that uses Sinatra to host a site that saves data in a Google Sheet. Based on [this blog post](https://www.twilio.com/blog/2017/03/google-spreadsheets-ruby.html). Setup instructions are below.
+This is an application that uses Sinatra to host a site that saves data in a Google Sheet. Based on an implentation from Phil Nash of Twilio. Setup instructions are below.
 
 ## Running the application
 
