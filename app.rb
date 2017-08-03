@@ -5,14 +5,16 @@ get "/" do
   erb :index
 end
 
-post "/thanks" do
+post "/" do
   @name = params["name"]
+  @email = params["email"]
   @address = params["address"]
   @city = params["city"]
   @state = params["state"]
   @zip = params["zip-code"]
 
-  new_row = [params["name"], params["email"], params["phone_number"]]
+  new_row = [params["name"], params["email"], params["address"], 
+              params["city"], params["state"], params["zip-code"]]
   
   begin
     worksheet.insert_rows(worksheet.num_rows+1, [new_row])
@@ -27,6 +29,6 @@ end
 
 def worksheet
   @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
-  @spreadsheet ||= @session.spreadsheet_by_title("Address Catcher")
+  @spreadsheet ||= @session.spreadsheet_by_title("address-catcher")
   @worksheet ||= @spreadsheet.worksheets.first
 end

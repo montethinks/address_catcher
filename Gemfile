@@ -2,4 +2,4 @@
 source "https://rubygems.org"
 
 gem "sinatra"
-gem "google_drive"
+gem "google_drive", ">=2.1.3"
