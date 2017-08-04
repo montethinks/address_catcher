@@ -1,4 +1,5 @@
 require "bundler"
+require "dotenv/load"
 Bundler.require
 
 get "/" do
@@ -28,7 +29,8 @@ post "/" do
 end
 
 def worksheet
-  @session ||= GoogleDrive::Session.from_service_account_key("client_secret.json")
+  @session ||= GoogleDrive::Session.from_service_account_key(ENV['AUTH_SPREADSHEET'])
   @spreadsheet ||= @session.spreadsheet_by_title("address-catcher")
   @worksheet ||= @spreadsheet.worksheets.first
 end
+
